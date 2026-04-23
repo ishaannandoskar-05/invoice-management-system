@@ -50,6 +50,7 @@ let dashes = document.getElementById("dashes");
 let storedname;
 let clients = document.getElementById("manageclients");
 let body=document.getElementById("body");
+
 document.getElementById("loginButton").addEventListener("click", async (event) => {
     event.preventDefault();
     const username = document.getElementById("login-name").value.trim();
@@ -59,7 +60,7 @@ document.getElementById("loginButton").addEventListener("click", async (event) =
         return;
     }
     try {
-        const response = await fetch("http://localhost:3000/api/login", {
+        const response = await fetch("/api/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
@@ -101,7 +102,7 @@ signUpButton.addEventListener("click", async (event) => {
     }
 
     try {
-        const response = await fetch("http://localhost:3000/api/signup", {
+        const response = await fetch("/api/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, email, contactNo, address, password, confirmPassword })
@@ -123,7 +124,7 @@ signUpButton.addEventListener("click", async (event) => {
 
 async function fetchUserDetails(username) {
     try {
-        const response = await fetch(`http://localhost:3000/api/user/${username}`);
+        const response = await fetch(`/api/user/${username}`);
         if (!response.ok) {
             throw new Error("Failed to fetch user details");
         }
@@ -148,7 +149,7 @@ async function loadInvoices() {
             return;
         }
 
-        const response = await fetch(`http://localhost:3000/api/invoices/${username}`);
+        const response = await fetch(`/api/invoices/${username}`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const invoices = await response.json();
@@ -188,7 +189,7 @@ async function loadInvoices() {
                 const newStatus = statusElement.innerText === 'Pending' ? 'Paid' : 'Pending';
     
                 try {
-                    const updateResponse = await fetch(`http://localhost:3000/api/invoice/${invoiceId}/status`, {
+                    const updateResponse = await fetch(`/api/invoice/${invoiceId}/status`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ status: newStatus })
@@ -248,7 +249,7 @@ document.getElementById("generate-invoice").addEventListener("click", async func
     };
 
     try {
-        const response = await fetch("http://localhost:3000/api/storeinvoice", {
+        const response = await fetch("/api/storeinvoice", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -290,7 +291,7 @@ async function storeBuyer() {
     }
 
     try {
-        const checkResponse = await fetch(`http://localhost:3000/api/buyer?email=${buyerEmail}`);
+        const checkResponse = await fetch(`/api/buyer?email=${buyerEmail}`);
         const existingBuyer = await checkResponse.json();
 
         let buyerStatus = "Regular";
@@ -301,7 +302,7 @@ async function storeBuyer() {
             buyerStatus = btotal > 20 ? "VIP" : "Regular";
         }
 
-        const response = await fetch("http://localhost:3000/api/storebuyer", {
+        const response = await fetch("/api/storebuyer", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ buyerName, buyerEmail, buyerContact, buyerAddress, buyerStatus, btotal })
@@ -324,7 +325,7 @@ async function storeBuyer() {
 
 async function loadBuyers() {
     try {
-        const response = await fetch("http://localhost:3000/api/buyers");
+        const response = await fetch("/api/buyers");
         const buyers = await response.json();
         const buyerTableBody = document.querySelector('#buyerTable tbody');
         buyerTableBody.innerHTML = "";
