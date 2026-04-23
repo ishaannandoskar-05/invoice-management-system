@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const mongoURI = 'mongodb+srv://user:user123@ishaan.uxm7o.mongodb.net/?appName=ishaan';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://user:user123@ishaan.uxm7o.mongodb.net/?appName=ishaan';
 
 mongoose.connect(mongoURI)
     .then(() => console.log("Connected to MongoDB"))
@@ -32,43 +32,6 @@ const invoiceSchema = new mongoose.Schema({
     invoiceId: { type: Number, unique: true, required: true },
     user: { type: String, required: true }
 });
-// const buyerSchema = new mongoose.Schema({
-//     buyerName: { type: String, required: true },
-//     buyerEmail: { type: String, required: true},
-//     buyerContact: { type: Number, required: true },
-//     buyerAddress: { type: String, required: true },
-//     buyerStatus: { type: String, required: true },
-//     btotal: { type: Number, required: true }
-// });
-
-// const Buyer = mongoose.model('Buyer', buyerSchema);
-// app.post('/api/storebuyer', async (req, res) => {
-//     try {
-//         const { buyerName, buyerEmail, buyerContact, buyerAddress, buyerStatus, btotal } = req.body;
-
-//         if (!buyerName || !buyerEmail || !buyerContact || !buyerAddress || !buyerStatus || !btotal) {
-//             return res.status(400).json({ message: "All fields are required" });
-//         }
-
-//         const newBuyer = new Buyer({ buyerName, buyerEmail, buyerContact, buyerAddress, buyerStatus, btotal });
-//         await newBuyer.save();
-
-//         res.status(201).json({ message: "Buyer information stored successfully!", buyer: newBuyer });
-//     } catch (error) {
-//         console.error("Error storing buyer information:", error);
-//         res.status(500).json({ message: "Error storing buyer information" });
-//     }
-// });
-
-// app.get('/api/buyers', async (req, res) => {
-//     try {
-//         const buyers = await Buyer.find();
-//         res.status(200).json(buyers);
-//     } catch (error) {
-//         console.error("Error fetching buyers:", error);
-//         res.status(500).json({ message: "Error retrieving buyers." });
-//     }
-// });
 
 const buyerSchema = new mongoose.Schema({
     buyerName: { type: String, required: true },
@@ -89,21 +52,15 @@ app.post('/api/storebuyer', async (req, res) => {
             return res.status(400).json({ message: "All fields are required" });
         }
 
-        // Check if buyer exists by email (ignoring contact & address)
         let existingBuyer = await Buyer.findOne({ buyerEmail });
 
         if (existingBuyer) {
-            // Increment purchase count
             existingBuyer.btotal += 1;
-
-            // Update status based on purchase count
             existingBuyer.buyerStatus = existingBuyer.btotal > 20 ? "VIP" : "Regular";
-
             await existingBuyer.save();
             return res.status(200).json({ message: "Buyer updated successfully!", buyer: existingBuyer });
         }
 
-        // If buyer does not exist, create a new one
         const newBuyer = new Buyer({
             buyerName,
             buyerEmail,
@@ -259,9 +216,6 @@ app.post("/api/storeinvoice", async (req, res) => {
     }
 });
 
-
-
-
 app.get('/api/invoices/:user', async (req, res) => {
     try {
         const username = req.params.user.toLowerCase().trim();
@@ -277,8 +231,6 @@ app.get('/api/invoices/:user', async (req, res) => {
         res.status(500).json({ message: "Error retrieving invoices" });
     }
 });
-
-
 
 app.get('/api/user/:username', async (req, res) => {
     try {
@@ -321,8 +273,10 @@ app.put('/api/invoice/:invoiceId/status', async (req, res) => {
         res.status(500).json({ message: "Error updating invoice status." });
     }
 });
-
-const PORT = 3000;
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
