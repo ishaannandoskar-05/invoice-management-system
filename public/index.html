@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+</head>
+<body id="body">
+        <div class="container" id="login1">
+            <form action="">
+            <div id="leftmost">
+                <br>
+                <div>
+                <h1 class="underlined">Sign Up</h1>
+                <div class="name">
+                    <p>Name:</p>
+                    <input type="text" id="signUpName" placeholder="Enter Your Username" aria-required="">
+                    <p>Email Id:</p>
+                    <input type="email" id="signUpEmail" placeholder="Enter Your Email" aria-required="">
+                    <p>Contact No:</p>
+                    <input type="number" id="signUpNo" placeholder="Enter Your Contact No." aria-required="">
+                    <p>Address:</p>
+                    <input type="text" id="signUpAddress" placeholder="Enter Your Address" aria-required="">
+                </div>
+                <div class="password">
+                    <p>Enter Password:</p>
+                    <input type="password" id="signUpPassword" placeholder="Enter Your Password" required="">
+                    <p>Confirm Password:</p>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Your Password" required="">
+                    <br>
+                    <br>
+                    <button id="signUpButton">Sign Up</button>
+                </div>
+            </div>
+            </div>
+            </form>
+            
+            <div id="left">
+               
+            </div>
+            <form action="">
+            <div id="right">
+                <br>
+                <div>
+                <h1 class="underlined">Login</h1>
+                <div class="name">
+                    <p>Name:</p>
+                    <input type="text" placeholder="Enter Your Name" aria-required="" id="login-name">
+                </div>
+                <div class="password">
+                    <p>Password:</p>
+                    <input type="password" placeholder="Enter Your Password" required="" id="login-password">
+                    <br>
+                    <br>
+                    <button id="loginButton">Login</button>
+                </div>
+                
+                <a href="#" id="signUp">Don't have an account?<br> Sign Up</a>               
+            </div>
+        </div>
+        </form>
+        </div>
+
+
+    <div id="secondpage">
+        <nav class="sidebar collapsed" id="sidebarid">
+            <header>
+                
+                <div class="itext">
+                    <div class="image">
+                        <img src="logo.jpg" alt="LOGO">
+                    </div>
+                     
+                </div>
+                
+            </header>
+            <ul class="menu">
+                <li class="li" id="sidebar-band"><a href="#"><i class='bx bx-menu'></i><span>Menu</span></a></li>
+                <li class="li" id="homeref"><a href="#"><i class="bx bx-home"></i><span>Home</span></a></li>
+                <li class="li" id="dashref"><a href="#"><i class="bx bx-bar-chart"></i><span>Dashboard</span></a></li>
+                <li class="li" id="invoiceref"><a href="#"><i class="bx bx-receipt"></i><span>Invoices</span></a></li>
+                <li class="li" id="clientref"><a href="#"><i class="bx bx-user"></i><span>Clients</span></a></li>
+                <li class="li" id="logout"><a href="#"><i class="bx bx-log-out"></i><span id="logtext">Log Out</span></a></li>
+            </ul>
+            
+            
+        </nav>
+        
+        <div class="SECOND-PAGE">
+            <div id="main-header-dynamic" >
+                <div id="generate" class="contentshit">GENERATE INVOICE</div>
+                <div id="status" class="contentshit">MANAGE INVOICE</div>
+            </div>
+            <div class="home" id="homediv">
+                <h1 id="home-heading">Welcome to Invoice Management System</h1>
+                <div class="rooms">
+                <div class="card">
+                    <div class="title">
+                        <span>
+                            <svg width="20" fill="currentColor" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1362 1185q0 153-99.5 263.5t-258.5 136.5v175q0 14-9 23t-23 9h-135q-13 0-22.5-9.5t-9.5-22.5v-175q-66-9-127.5-31t-101.5-44.5-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25t-61.5-26.5-62.5-31-56.5-35.5-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134v-180q0-13 9.5-22.5t22.5-9.5h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5 63.5 37.5 39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26-85.5-11.5q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5 31.5 76.5 13 94z">
+                                </path>
+                            </svg>
+                        </span>
+                        <p class="title-text">
+                            Paid Invoices
+                        </p>
+                    </div>
+                    <div class="data">
+                        <p id="sumOfPaid">
+                            ₹ 0.00
+                        </p>
+                        
+                        <div class="range">
+                            <div class="fill" id="fillspaid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card1">
+                    <div class="title1">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" height="20" fill="currentColor" width="20">
+                                <path d="M1362 1185q0 153-99.5 263.5t-258.5 136.5v175q0 14-9 23t-23 9h-135q-13 0-22.5-9.5t-9.5-22.5v-175q-66-9-127.5-31t-101.5-44.5-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25t-61.5-26.5-62.5-31-56.5-35.5-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134v-180q0-13 9.5-22.5t22.5-9.5h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5 63.5 37.5 39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26-85.5-11.5q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5 31.5 76.5 13 94z">
+                                </path>
+                            </svg>
+                        </span>
+                        <p class="title-text1">
+                            Due Invoices
+                        </p>
+
+                    </div>
+                    <div class="data1">
+                        <p id="sumOfInvoice">
+                            ₹ 0.00
+                        </p>
+                        
+                        <div class="range1">
+                            <div id="fillspending">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="title">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" height="20" fill="currentColor" width="20">
+                                <path d="M1362 1185q0 153-99.5 263.5t-258.5 136.5v175q0 14-9 23t-23 9h-135q-13 0-22.5-9.5t-9.5-22.5v-175q-66-9-127.5-31t-101.5-44.5-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25t-61.5-26.5-62.5-31-56.5-35.5-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134v-180q0-13 9.5-22.5t22.5-9.5h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5 63.5 37.5 39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26-85.5-11.5q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5 31.5 76.5 13 94z">
+                                </path>
+                            </svg>
+                        </span>
+                        <p class="title-text">
+                            Invoice Tracker
+                        </p>
+                    </div>
+                    <div class="pie-chart" id="pieChart"></div>
+                </div>
+                </div>
+
+            </div>
+            </div>
+            <div id="generateInvoice" class="home1">
+                <form action="" id="queryInvoice">
+                    <h2 class="invocieGeneratingSubHeading">Seller's Details:</h2>
+                    <div class="detailHolder">
+                        <div class="details"> 
+                            <div class="dm"><label for="" id="name">Name:</label><div id="printname" class="div1"></div></div>
+                            <div class="dm"><label for="" id="address">Address:</label><div id="printaddress" class="div1" ></div></div>
+                            <div class="dm"><label for="">Email Id:</label><div id="printemail" class="div1"></div></div>
+                            <div class="dm"><label for="">Contact No:</label><div id="printcontact" class="div1"></div></div>
+                        </div>  
+                    </div>
+                    <h2 class="invocieGeneratingSubHeading">Buyer's Details:</h2>
+                    <div class="detailHolder">
+                        <div class="details1">
+                            <div class="dm"><label for="">Name:</label><input type="text" id="buyer-name"></div>
+                            <div class="dm"><label for="">Address:</label><input type="text" id="buyer-address"></div>
+                            <div class="dm"><label for="">Email Id:</label> <input type="email" name="" id="buyer-email"></div>
+                            <div class="dm"><label for="">Contact No:</label><input type="number" name="" id="buyer-contact"></div>
+                            <div class="dm"><label for="">Invoice Date:</label><input type="date" id="invoiceDate" ></div>
+                        </div>  
+            
+                    </div>
+                    <h2>Items</h2>
+                    <div class="detailHolder">
+                        <table id="items-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn" id="add-item">Add Item</button>
+                    <div class="total">
+                        <strong>Grand Total: </strong> <span id="grand-total">0.00</span>
+                    </div>
+                    <button type="button" class="btn" id="generate-invoice">Generate Invoice</button>
+                    <button class="btn" onclick="printInvoice()">Print Invoice</button>
+                </form>
+            </div>
+            <div id="manageInvoice">
+                <div class="detailHolders">
+                    <table id="IMtable">
+                        <thead>
+                            <tr>
+                                <th class="table-elements">Sr No.</th>
+                                <th class="table-elements">Invoice Id</th>
+                                <th class="table-elements">Clients</th>
+                                <th class="table-elements">Amount</th>
+                                <th class="table-elements">Status</th>
+                                <th class="table-elements">Date</th>
+                                <th class="hiddencolumn"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn" id="edit">Edit</div>
+                </div>
+            </div>
+            <div class="dashboard" id="dashes">
+            <h1 id="yourmomshead">Dashboard</h1>
+                <div class="dashboardelement">
+                    <div class="holderdash">
+                        <div class="pie-chart1" id="pieChart1">
+
+                        </div>
+                        <div class="bar-chart" id="barchart">
+                            <div class="bar" id="bar"></div>
+                            <div class="bar1" id="bar1"></div>
+                        </div>
+                        <div id="changefigure">Bar Chart</div>
+                    </div>
+                    <div class="description">
+                        <h1>Invoice Tracker</h1>
+                        <div class="descelem"><div class="color"></div><div>Paid Invoice</div></div>
+                        <div class="descelem"><div class="color1"></div><div>Pending Invoice</div></div>
+                    </div>
+                </div>
+            </div>
+            <div id="manageclients">
+                <div class="clients">
+                 <table class="ctab" id="buyerTable">
+                     <thead>
+                         <tr>
+                            <th class="celemnts">Sr No.</th>
+                             <th class="celemnts">Name</th>
+                             <th class="celemnts">Email</th>
+                             <th class="celemnts">Contact</th>
+                             <th class="celemnts">Address</th>
+                             <th class="celemnts">Total</th>
+                             <th class="celemnts">Status</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                        
+                     </tbody>
+                 </table>
+                </div>
+             </div>
+        <!-- <div class="container1">
+        
+            <h2>Detailed Monthly Report</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Due</th>
+                        <th>Paid</th>
+                        <th>Total Revenue</th>
+                    </tr>
+                </thead>
+                <tbody id="reportTableBody">
+    
+                </tbody>
+            </table>
+            
+            
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            
+            <button id="updateChart">Update Chart</button>
+            <button id="exportBtn">Export Report</button>
+        </div> -->
+    
+    </div>
+    <script src="script.js"></script>
+    <script src="script1.js"></script>
+</body>
+</html>
